@@ -18,18 +18,50 @@ Kirigami.applicationWindow {
             spacing: 20
             width: parent.width
 
+            // Quick Fixes Card
             Kirigami.Card {
                 Layout.fillWidth: true
                 header: Kirigami.Heading {
-                    text: "Emergency Companion"
+                    text: "1-Click Quick Fixes"
                     level: 2
                     color: "#f4b8e4"
                 }
-                contentItem: Text {
-                    text: "If audio, Wi-Fi, or your desktop dock ever acts up, use the quick fixes here or send a diagnostic snapshot to Sho."
-                    font.pixelSize: 14
-                    color: "#c6d0f5"
-                    wrapMode: Text.WordWrap
+                contentItem: ColumnLayout {
+                    spacing: 12
+
+                    Text {
+                        text: fixWorker.statusMessage
+                        font.pixelSize: 14
+                        color: "#ca9ee6"
+                        wrapMode: Text.WorkWrap
+                        Layout.fillWidth: true
+                    }
+
+                    RowLayout {
+                        Layout.fillWidth: true
+                        spacing: 10
+
+                        QQC2.Button {
+                            Layout.fillWidth: true
+                            text: "Fix Audio"
+                            enabled: !fixWorker.isBusy
+                            onClicked: fixWorker.fixAudio()
+                        }
+
+                        QQC2.Button {
+                            Layout.fillWidth: true
+                            text: "Fix Internet"
+                            enabled: !fixWorker.isBusy
+                            onClicked: fixWorker.fixNetwork()
+                        }
+
+                        QQC2.Button {
+                            Layout.fillWidth: true
+                            text: "Refresh Desktop"
+                            enabled: !fixWorker.isBusy
+                            onClicked: fixWorker.fixDesktopShell()
+                        }
+                    }
                 }
             }
         }

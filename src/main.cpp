@@ -9,6 +9,9 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
+    auto *fixWorker = new FixWorker(&app);
+    engine.rootContext()->setContextProperty("fixWorker", fixWorker);
+
     const QUrl url(QStringLiteral("qrc:/Zoey/Sos/qml/Main.qml"));
     QObject::connect(
         &engine, &QQmlApplicationEngine::objectCreated,

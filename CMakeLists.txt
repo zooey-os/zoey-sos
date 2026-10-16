@@ -13,6 +13,8 @@ qt_policy(SET QTP0004 NEW)
 
 add_executable(zoey-sos
     src/main.cpp
+    src/FixWorker.hpp
+    src/FixWorker.cpp
 )
 
 qt_add_qml_module(zoey-sos
