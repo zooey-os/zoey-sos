@@ -15,6 +15,10 @@ add_executable(zoey-sos
     src/main.cpp
     src/FixWorker.hpp
     src/FixWorker.cpp
+    src/DiagnosticReport.hpp
+    src/DiagnosticReport.cpp
+    src/SnapshotManager.hpp
+    src/SnapshotManager.cpp
 )
 
 qt_add_qml_module(zoey-sos
@@ -33,3 +37,6 @@ target_link_libraries(zoey-sos PRIVATE
     Qt6::QuickControls2
     KF6::Kirigami
 )
+
+install(TARGETS zoey-sos DESTINATION bin)
+install(FILES resources/zoey-sos.desktop DESTINATION share/applications)

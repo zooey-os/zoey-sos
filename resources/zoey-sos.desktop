@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Zoey SOS
+Comment=1-Click Self-Heal, System Rollback & Diagnostic Companion for ZoeyOS
+Exec=zoey-sos
+Icon=dialog-information
+Terminal=false
+Type=Application
+Categories=System;Utility;KDE;Qt;
